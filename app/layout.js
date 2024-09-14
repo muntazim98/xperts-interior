@@ -4,6 +4,7 @@ import "./globals.css";
 //Components
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FloatingWhatsApp from "@/components/floatingWhatsApp";
 //Theme Component
 import { ThemeProvider } from "@/components/ThemeProvider";
 const Josef = Sen(
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
         <Header/>
         {children}
         <Footer/>
+        <FloatingWhatsApp/>
         </ThemeProvider>
         </body>
     </html>

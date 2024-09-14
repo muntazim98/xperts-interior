@@ -96,7 +96,7 @@ export default function Footer() {
             whileInView="onscreen"
             variants={tagVariants}
             className="pb-4 lg:pb-0">
-            <p>Xperts Interior Decoration L.L.C &copy; 2024 Interior. All Rights Reserved</p>
+            <p>Xperts Interiors Decoration L.L.C &copy; 2024 Interior. All Rights Reserved</p>
           </motion.div>
           <motion.div
             initial="offscreen"

@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const { firstname, lastname, company, email, message } = req.body;
+    const { firstname, lastname,phone, email, message } = req.body;
     // Create a Nodemailer transporter
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -16,9 +16,9 @@ export default async function handler(req, res) {
     // Email options
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: 'muntazimalikhan@gmail.com',
-      subject: 'Contact Form Submission',
-      text: `Name: ${firstname} ${lastname}\nCompany: ${company}\nEmail: ${email}\nMessage: ${message}`,
+      to: 'engr.numairz@gmail.com',
+      subject: 'Fitout Enquiry Form Submission',
+      text: `Name: ${firstname} ${lastname}\nPhone: ${phone}\nEmail: ${email}\nQuery Message: ${message}`,
     };
 
     try {
