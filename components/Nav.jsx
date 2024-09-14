@@ -8,9 +8,10 @@ import { motion } from "framer-motion";
 const links=[
     {path:'/', name:'home'},
     {path:'/about', name:'about'},
-    {path:'/collection', name:'collection'},
+    {path:'/services', name:'services'},
     {path:'/projects', name:'projects'},
-    {path:'/contact', name:'contact'},
+    {path:'/contact', name:'connect'},
+    {path:'/partner', name:'partnership'},
 ]
 
 const Nav = ({ containerStyles, linkStyles, underlineStyles}) => {

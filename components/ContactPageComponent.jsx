@@ -20,7 +20,7 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
-    company: '',
+    phone: '',
     email: '',
     message: '',
   });
@@ -45,7 +45,7 @@ export default function Contact() {
     });
 
     if (response.ok) {
-      toast.success('Email sent successfully!', {
+      toast.success('Query received successfully. We will get back to you soon. Thanks!', {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -57,13 +57,13 @@ export default function Contact() {
       setFormData({
         firstname: '',
         lastname: '',
-        company: '',
+        phone: '',
         email: '',
         message: '',
       });
       setAgreed(false);
     } else {
-      toast.error('Failed to send email. Please try again later.', {
+      toast.error('Failed to send query. Please try again later.', {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -90,18 +90,20 @@ export default function Contact() {
           variants={desVariants}
           className="container py-64 text-5xl text-left font-semibold  tracking-widest uppercase text-white"
         >
-          Contact Our Sales
+          Let's Connect
         </motion.h1>
       </motion.div>
       <div className="px-6 py-24 sm:py-32 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
+        <motion.p initial="offscreen" whileInView="onscreen" variants={tagVariants} className="text-lg leading-8 text-gray-600">
+          This Page is exclusively for fitout enquiry service puprpose :
+          </motion.p>
           <motion.h2
             initial="offscreen"
             whileInView="onscreen"
             variants={desVariants}
-            className="text-xl font-semibold tracking-tight sm:text-4xl"
-          >
-            Please feel free to ask anything
+            className="text-xl mt-2 font-semibold tracking-tight sm:text-4xl"
+          >Please feel free to ask anything
           </motion.h2>
         </div>
         <form className="mx-auto mt-16 max-w-xl sm:mt-20" onSubmit={handleSubmit}>
@@ -119,7 +121,7 @@ export default function Contact() {
             </div>
             <div className="sm:col-span-2">
               <div className="mt-2.5">
-                <Input type="text" id="company" placeholder="Company" value={formData.company} onChange={handleChange} />
+                <Input type="text" id="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} />
               </div>
             </div>
             <div className="sm:col-span-2">
@@ -129,7 +131,7 @@ export default function Contact() {
             </div>
             <div className="sm:col-span-2">
               <div className="mt-2.5">
-                <Textarea id="message" placeholder="Type Your Message Here..." value={formData.message} onChange={handleChange} />
+                <Textarea id="message" placeholder="Type Your Query Here..." value={formData.message} onChange={handleChange} />
               </div>
             </div>
             <Switch.Group as="div">
@@ -165,7 +167,7 @@ export default function Contact() {
                 agreed ? 'hover:bg-gray-800 hover:ring-2 hover:ring-gray-800' : 'bg-gray-400 cursor-not-allowed'
               )}>
                 <TbArrowUpRight className="w-5 h-5 ml-2" />
-                Lets Talk
+                Send Your Query
               </Button>
             </div>
           </motion.div>

@@ -1,13 +1,21 @@
-import Link from 'next/link';
-import logo from '../public/xpertslogo2.png';
+// Logo.js
+import { useTheme } from 'next-themes';
 import Image from 'next/image';
+import Link from 'next/link';
+import logoLight from '../public/xplogo-light.png';
+import logoDark from '../public/xplogo4.png';
 
 const Logo = () => {
-  return (
-   <Link href="/">
-  <Image src={logo} alt="logimage" width={500} height={214} layout="fixed" className="h-14 w-36" />
-   </Link>
-  )
-}
+  const { theme } = useTheme();
+  
+  // Choose the logo based on the current theme
+  const logo = theme === 'dark' ? logoDark : logoLight;
 
-export default Logo
+  return (
+    <Link href="/">
+      <Image src={logo} alt="logo" width={800} height={300} className="h-16 w-48" />
+    </Link>
+  );
+};
+
+export default Logo;

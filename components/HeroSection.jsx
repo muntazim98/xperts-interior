@@ -30,8 +30,8 @@ const HeroSection = () => {
           whileInView="onscreen"
           variants={tagVariants}
           className='pb-6 text-muted-foreground xl:pb-10 text-justify'>
-          At Artful Spaces, we believe that every room is a canvas waiting to be transformed. Our passion lies in weaving stories through design, where colors harmonize, textures whisper, and furniture dances to its own rhythm. Whether it’s a cozy nook or a sprawling penthouse, we curate spaces that reflect your personality, aspirations, and dreams.
-          <br/>Feel free to explore our portfolio, connect with our team, and embark on a journey of transformation. Welcome home! 🏠✨
+          At Xperts Interiors, we believe that every place is a canvas waiting to be transformed. Our passion lies in weaving stories through design, where colors harmonize, textures whisper, and furniture dances to its own rhythm. Whether it’s a cozy nook or a sprawling penthouse, we curate spaces that reflect your personality, aspirations, and dreams.
+          <br/>Feel free to explore our portfolio, connect with our team, and embark on a journey of transformation. Welcome to Xperts Interiors ! ✨
         </motion.p>
         <motion.div
           initial="offscreen"
