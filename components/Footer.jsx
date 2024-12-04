@@ -31,9 +31,9 @@ export default function Footer() {
             variants={titleVariants}>
             <h2 className="pb-4 text-xl font-semibold uppercase">Quick Links</h2>
             <div className="flex flex-col">
-              <Link href="/" className="py-1 hover:underline">About Us</Link>
+              <Link href="/" className="py-1 hover:underline">Our Vision</Link>
               <Link href="/" className="py-1 hover:underline">Press</Link>
-              <Link href="/" className="py-1 hover:underline">Career</Link>
+              <Link href="/" className="py-1 hover:underline">Careers</Link>
               <Link href="/" className="py-1 hover:underline">Partnerships</Link>
             </div>
           </motion.div>
@@ -55,9 +55,9 @@ export default function Footer() {
             variants={desVariants}>
             <h2 className="pb-4 text-xl font-semibold uppercase">Our Services</h2>
             <div className="flex flex-col">
-              <Link href="/" className="py-1 hover:underline">Design Consultancy</Link>
-              <Link href="/" className="py-1 hover:underline">Furniture Solution</Link>
-              <Link href="/" className="py-1 hover:underline">Fitout Services</Link>
+              <Link href="/" className="py-1 hover:underline">Turn-Key Solutions</Link>
+              <Link href="/" className="py-1 hover:underline">Space Planning</Link>
+              <Link href="/" className="py-1 hover:underline">Design Cosultancy and Fit-out Approvals</Link>
               <Link href="/" className="py-1 hover:underline">Villa Extension and Renovation</Link>
             </div>
           </motion.div>

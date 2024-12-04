@@ -1,25 +1,57 @@
 'use client';
-import React, { useRef } from 'react';
-import Image from 'next/image';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { desVariants, titleVariants } from '@/utils/animation';
-import { TbArrowUpRight } from 'react-icons/tb';
+import { TbArrowDownRight, TbArrowUpRight } from 'react-icons/tb';
 import { Button } from '@/components/ui/button';
+import AnimatedImage from './AnimatedImage';
+import clsx from 'clsx';
 
 const ServicePage = () => {
-  const serviceImages = [
-    '/image/services/interior-fit-out.jpg', // Image for Interior Fit-Out & On-Site Supervision
-    '/image/services/space-transformation.jpg', // Image for Space Transformation & Quality Supervision
-    '/image/services/design-implementation.jpg' // Image for Design Implementation & Project Monitoring
+  const [expanded, setExpanded] = useState(Array(3).fill(false)); // State to track expanded services
+  
+  const toggleExpand = (index) => {
+    const updated = [...expanded];
+    updated[index] = !updated[index];
+    setExpanded(updated);
+  };
+
+  const services = [
+    {
+      title: "Interior Fit-Out & On-Site Supervision",
+      description1: `
+        At Xperts Interior Decoration LLC, our interior fit-out service is designed to transform your workspace into an inspiring and functional environment. We take pride in delivering end-to-end solutions, from concept development to the final execution. Our team of experts works closely with you to understand your specific requirements and create a space that reflects your brand identity while enhancing functionality. Whether it’s office buildings, conference halls, or industrial complexes, we ensure that every detail is meticulously planned and executed to perfection.
+      `,
+      description2: `
+        Our on-site supervision service provides you with the peace of mind that your project is in the hands of experienced professionals. We manage every phase of the construction process, ensuring that timelines are met, budgets are maintained, and the highest standards of quality are adhered to. By closely monitoring the project from start to finish, we guarantee that the final outcome aligns with your expectations, providing a seamless and stress-free experience for all our clients.
+      `
+    },
+    {
+      title: "Space Transformation & Quality Supervision",
+      description1: `
+        Our space transformation service focuses on creating dynamic, functional spaces that cater to your business needs. We go beyond aesthetics, ensuring that the transformed environment not only looks impressive but also works efficiently for daily operations. Our designers and engineers collaborate to ensure that every corner of your space is optimized for comfort and productivity.
+      `,
+      description2: `
+        With our quality supervision, we ensure that every aspect of your project is carried out to the highest standards. From materials to workmanship, our team conducts rigorous checks at every stage, ensuring that nothing is overlooked. The result is a space that not only meets but exceeds your expectations in terms of both functionality and visual appeal.
+      `
+    },
+    {
+      title: "Design Implementation & Project Monitoring",
+      description1: `
+        At Xperts Interior Decoration LLC, design implementation is at the core of bringing your vision to life. Our team ensures that every element of the design is executed flawlessly, maintaining the integrity of the original concept. From material selection to layout execution, we work closely with clients and architects to ensure every design element is realized to perfection.
+      `,
+      description2: `
+        Project monitoring is a crucial part of our process, where we ensure the entire project stays on track from inception to completion. We monitor timelines, budgets, and quality to make sure every phase is completed efficiently and meets the desired standards. Our project managers provide regular updates and are proactive in addressing any challenges, ensuring a smooth and successful project completion.
+      `
+    }
   ];
-  const scrollRefs = [useRef(null), useRef(null), useRef(null)]; // Create refs for each image
-  const scales = scrollRefs.map(ref => {
-    const { scrollYProgress } = useScroll({
-      target: ref,
-      offset: ["start end", "end start"]
-    });
-    return useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-  });
+
+  const serviceImages = [
+    '/image/services/interior-fit-out.webp',
+    '/image/services/space-transformation.webp',
+    '/image/services/design-implementation.webp'
+  ];
+
 
   return (
     <div>
@@ -28,93 +60,115 @@ const ServicePage = () => {
         initial="offscreen"
         whileInView="onscreen"
         variants={desVariants}
-        className="relative bg-[url('/image/services1.jpg')] bg-center bg-cover bg-no-repeat h-screen w-full"
+        className="relative bg-[url('/image/services/services1.webp')] bg-center bg-cover bg-no-repeat h-screen w-full"
       >
         <motion.div
-        initial="offscreen"
-        whileInView="onscreen"
-        variants={titleVariants}
-        className="absolute top-48 inset-0 flex items-center justify-center"
+          initial="offscreen"
+          whileInView="onscreen"
+          variants={titleVariants}
+          className="absolute top-80 sm:top-80 md:top-80 lg:top-56 xl:top-56  inset-0 flex items-center justify-center"
         >
-<h1 className="container  text-xs font-semibold text-gray-600 tracking-widest text-center sm:text-xl  md:text-2xl lg:text-2xl xl:text-2xl rotate-3.5"
->Transform your dream space into reality !!!
-</h1>
+          <h1 className="container text-xs font-semibold text-gray-600 tracking-widest text-center sm:text-xl md:text-xl lg:text-xl xl:text-2xl rotate-3.5">
+            Transform your dream space into reality !!!
+          </h1>
         </motion.div>
-       
-
       </motion.div>
 
       {/* About Us Section */}
       <div className="container mx-auto px-4">
-        <div className="pt-4">
+        <div className="px-4 pt-8">
           <motion.h2
             initial="offscreen"
             whileInView="onscreen"
             variants={titleVariants}
-            className="text-3xl font-semibold text-center lg:p-10 lg:text-5xl"
+            className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl  font-semibold text-gray-600 dark:text-gray-300 text-center p-10 tracking-widest uppercase
+           shadow-lg ring-2 ring-gray-600 dark:ring-gray-300 rounded-lg"
           >
-           We Provide Services That Suit Your Needs
+            "Xcellence is our standard
+            <br/>Quality is our promise"
           </motion.h2>
+         
           <motion.p
             initial="offscreen"
             whileInView="onscreen"
             variants={desVariants}
-            className="text-lg lg:text-2xl font-medium  mt-2 text-justify"
+            className="text-xl mt-14 text-gray-700 dark:text-gray-200 text-justify"
           >
-            Xperts Interior Decoration LLC, with a decade of proven experience in the fit-out and interior decoration services in Dubai.
-
+            Xperts Interior Decoration LLC brings over a decade of excellence in delivering premier fit-out and interior decoration services in Dubai.
+          <br/>Our expertise transforms spaces into functional and aesthetically stunning environments, reflecting our commitment to quality, innovation, and client satisfaction. From concept to completion, we specialize in creating tailored solutions that redefine interiors, setting new standards in design and functionality.
+          <br/>Feel free to modify it if you'd like to emphasize specific services or values further.
           </motion.p>
         </div>
 
         {/* Gallery Sections */}
-        {['Interior Fit-Out & On-Site Supervision', 'Space Transformation & Quality Supervision', 'Design Implementation & Project Monitoring'].map((title, index) => (
-          <div key={index} className={`items-center lg:flex gap-x-8 ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''} my-4`}>
-            <motion.div style={{ scale: scales[index] }} ref={scrollRefs[index]} 
-            className="w-full h-[500px] lg:h-[600px] overflow-hidden mb-6 lg:mb-0">
-              <Image
-               src={serviceImages[index]} // Use the image path corresponding to the service
-               layout="fill"
-               objectFit="cover"
-               alt={`Gallery Image for ${title}`}
-               className="rounded-lg"
+        <div className="container mx-auto px-4">
+        {services.map((service, index) => (
+          <div
+            key={index}
+            className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 my-10"
+          >
+            {/* Image Section */}
+            <div className={clsx(
+                'w-full h-full',
+                index % 2 === 0 ? 'lg:order-last' : 'lg:order-first'
+              )}>
+              <AnimatedImage
+                src={serviceImages[index]}
+                alt="Service Image"
+                width={700}
+                height={1400}
+                className="w-full h-auto lg:h-[550px] object-cover rounded-lg"
               />
-            </motion.div>
-            <div>
+            </div>
+
+            {/* Text Section */}
+            <div className="relative w-full h-full">
               <motion.h2
                 initial="offscreen"
                 whileInView="onscreen"
                 variants={titleVariants}
-                className="text-2xl text-primary font-semibold text-left lg:p-8 lg:text-3xl"
+                className="absolute top-4 text-2xl text-primary font-semibold text-left lg:text-3xl"
               >
-                {title}:
+                {service.title} :
               </motion.h2>
+              
               <motion.p
                 initial="offscreen"
                 whileInView="onscreen"
                 variants={desVariants}
-                className="pb-4 tracking-wide mt-2 text-justify text-lg lg:text-xl"
+                className="pb-4 tracking-wide mt-24 text-justify"
               >
-                🌟 The Alchemy of Space: We orchestrate rooms like symphonies, each note resonating with purpose. Light dances through sheer curtains, casting shadows that tell stories. A vintage armchair cradles memories, while a hand-painted mural whispers secrets.
-                <br />🎨 Brushstrokes of Elegance: Our palette is boundless—soft blushes, midnight blues, and the warmth of aged oak. We layer textures like sonnets: velvet against linen, brass against marble. Every detail, deliberate; every corner, a sonnet waiting to be read.
-                <br />🏡 Homecoming: Your home is more than walls—it’s where laughter echoes, where love unfurls. We listen intently, sketching dreams into blueprints. From the cozy reading nook to the grand foyer, we craft spaces that breathe life into your story.
-                <br />Step inside Artful Spaces, where design is an invitation—to linger, to dream, to find solace. Let’s create magic together.
-                <br /><br />
-                <span className="text-xl font-extrabold tracking-tight">
-                  The backpiperARCH, we share a belief in the transformational power of people united in a common purpose.
-                </span>
+                {service.description1}
+                {expanded[index] && (
+                  <>
+                    <br />
+                    <br />
+                    {service.description2}
+                  </>
+                )}
               </motion.p>
+
               <motion.div
                 initial="offscreen"
                 whileInView="onscreen"
                 variants={desVariants}
               >
-                <Button className="inline-flex items-center px-8 py-3 shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2">
-                  Read More <TbArrowUpRight className="w-5 h-5 ml-2" />
+                <Button
+                  onClick={() => toggleExpand(index)}
+                  className="inline-flex items-center px-8 py-3 shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2"
+                >
+                  {expanded[index] ? 'Show Less' : 'Show More'} 
+                  {expanded[index] ? (
+                    <TbArrowUpRight className="w-5 h-5 ml-2" />
+                  ) : (
+                    <TbArrowDownRight className="w-5 h-5 ml-2" />
+                  )}
                 </Button>
               </motion.div>
             </div>
           </div>
         ))}
+        </div>
       </div>
     </div>
   );

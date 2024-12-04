@@ -10,8 +10,8 @@ const links=[
     {path:'/about', name:'about'},
     {path:'/services', name:'services'},
     {path:'/projects', name:'projects'},
-    {path:'/contact', name:'connect'},
-    {path:'/partner', name:'partnership'},
+    {path:'/contact', name:'connect with us'},
+    {path:'/partner', name:'partner with us'},
 ]
 
 const Nav = ({ containerStyles, linkStyles, underlineStyles}) => {

@@ -8,6 +8,7 @@ export default function partner() {
     </>
   );
 }
+
 export function generateMetadata() {
   return {
     title: "Partner with us - Xperts Interiors | One of the Trusted Interior Design Company to partner",
