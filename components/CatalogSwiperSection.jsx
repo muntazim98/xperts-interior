@@ -66,7 +66,7 @@ export default function CatalogSwiperSection() {
                     initial="offscreen"
                     whileInView="onscreen"
                     variants={desVariants}
-                    href="/collection"
+                    href="/projects"
                     className="mb-6"
                 >
                     <Button className="inline-flex items-center px-6 py-3 text-white rounded-full shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2">

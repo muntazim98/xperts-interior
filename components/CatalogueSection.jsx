@@ -6,7 +6,7 @@ export default function CatalogueSection() {
       id: "01",
       catagory: "OFFICEROOM SETUP",
       title: "Cozy Officeroom Setup",
-      image: "/image/collection/badroom.webp",
+      image: "/image/badroom.jpg",
       description: "Officeroom with cozy and comfortable design for Better Working Environment"
     },
     {
