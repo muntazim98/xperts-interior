@@ -11,6 +11,6 @@ export default function about() {
 export function generateMetadata() {
   return {
     title: "About - Xperts Interior | Best Interior Design Company",
-    description: "All about the Xperts Interior company. one of the best interior design company",
+    description: "All about the Xperts Interior company. one of the best interior design company of Dubai",
   };
 }

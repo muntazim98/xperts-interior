@@ -7,8 +7,9 @@ import { TbArrowUpRight } from 'react-icons/tb';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { desVariants, tagVariants, titleVariants } from '@/utils/animation';
-import { LocationMarkerIcon, PhoneIcon } from '@heroicons/react/outline';
+import { LocationMarkerIcon } from '@heroicons/react/outline';
 import { ToastContainer, toast } from 'react-toastify';
+import emailjs from '@emailjs/browser';
 import 'react-toastify/dist/ReactToastify.css';
 
 function classNames(...classes) {
@@ -20,7 +21,6 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
-    company: '',
     email: '',
     phone: '',
     jobtitle: '',
@@ -36,86 +36,96 @@ export default function Contact() {
       [id]: value,
     }));
   };
+  const templateParams={
+    from_name:formData.email,
+    to_name:'Muntazim Ali',
+    message : formData.message
 
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const response = await fetch('/api/send-collaboratemail', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
-
-    if (response.ok) {
-      toast.success('Email received successfully. We will get back to you soon. Thanks!', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      setFormData({
-        firstname: '',
-        lastname: '',
-        phone: '',
-        email: '',
-        message: '',
-      });
-      setAgreed(false);
-    } else {
-      toast.error('Failed to send email. Please try again later.', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
+    await emailjs.send(
+      'service_csihxee', 
+      'template_5wcn3uj',
+      templateParams,
+       'Z7mnTwmbhhWTedURM',
+      )
+      .then(
+        () => {
+          toast.success('Email received successfully. We will get back to you soon. Thanks!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          setFormData({
+            firstname: '',
+            lastname: '',
+            email: '',
+            phone: '',
+            jobtitle: '',
+            businessname: '',
+            businessaddress: '',
+            message: '',
+          });
+          setAgreed(false);
+        },
+        (error) => {
+         
+          toast.error('Failed to send email. Please try again later.', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        },
+      );
   };
-
+   
   return (
-    <div>
+    <div className="relative overflow-hidden">
       <ToastContainer />
       <motion.div
         initial="offscreen"
         whileInView="onscreen"
         variants={titleVariants}
-        className="bg-[url('/image/salesteam/salesteam2.jpg')] bg-center bg-cover h-screen w-full"
+        className="bg-[url('/image/salesteam/salesteam2.webp')] bg-center bg-cover h-screen w-full flex items-center justify-center"
       >
         <motion.h1
           initial="offscreen"
           whileInView="onscreen"
           variants={desVariants}
-          className="container py-64 text-5xl text-left font-semibold  tracking-widest uppercase text-white"
+          className="text-center text-4xl mt-12 sm:mt-14 xl:mt-24 lg:mt-20 md:mt-16 py-14 sm:py-14 xl:py-32 lg:py-32 md:py-24 rounded-lg shadow-lg sm:text-5xl md:text-6xl font-semibold tracking-widest uppercase text-white bg-gradient-to-r from-black via-transparent to-black"
         >
           Let's Be a Partner
         </motion.h1>
       </motion.div>
-      <div className="px-6 py-24 sm:py-32 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <motion.p initial="offscreen" whileInView="onscreen" variants={tagVariants} className="text-lg leading-8 text-gray-600">
-          This Page is exclusively for Business Owners, Suppliers and Resellers:
+      <div className="bg-gray-50 dark:bg-gray-900 px-6 py-12 sm:py-16 lg:px-8">
+        <div className="mx-auto max-w-4xl text-center">
+          <motion.p initial="offscreen" whileInView="onscreen" variants={tagVariants} className="text-lg leading-8 text-gray-600 dark:text-gray-300">
+            This Page is exclusively for Business Owners, Suppliers, and Resellers:
           </motion.p>
           <motion.h2
             initial="offscreen"
             whileInView="onscreen"
             variants={desVariants}
-            className="text-xl font-semibold tracking-tight sm:text-4xl"
-          >  contact our sales to partner with us
+            className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight mt-4"
+          >
+            Contact our sales to partner with us
           </motion.h2>
         </div>
-        <form className="mx-auto mt-16 max-w-xl sm:mt-20" onSubmit={handleSubmit}>
+        <form className="mx-auto mt-16 max-w-3xl" onSubmit={handleSubmit}>
           <motion.div
             initial="offscreen"
             whileInView="onscreen"
             variants={titleVariants}
-            className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2"
+            className="grid grid-cols-1 gap-6 sm:grid-cols-2"
           >
             <div className="mt-2.5">
               <Input type="text" id="firstname" placeholder="First Name" value={formData.firstname} onChange={handleChange} />
@@ -124,43 +134,31 @@ export default function Contact() {
               <Input type="text" id="lastname" placeholder="Last Name" value={formData.lastname} onChange={handleChange} />
             </div>
             <div className="sm:col-span-2">
-              <div className="mt-2.5">
-                <Input type="text" id="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} />
-              </div>
+              <Input type="text" id="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} />
             </div>
             <div className="sm:col-span-2">
-              <div className="mt-2.5">
-                <Input type="email" id="email" placeholder="Email Address" value={formData.email} onChange={handleChange} />
-              </div>
+              <Input type="email" id="email" placeholder="Email Address" value={formData.email} onChange={handleChange} />
             </div>
             <div className="sm:col-span-2">
-              <div className="mt-2.5">
-                <Input type="text" id="jobtitle" placeholder="Your Job Title" value={formData.jobtitle} onChange={handleChange} />
-              </div>
+              <Input type="text" id="jobtitle" placeholder="Your Job Title" value={formData.jobtitle} onChange={handleChange} />
             </div>
             <div className="sm:col-span-2">
-              <div className="mt-2.5">
-                <Input type="text" id="businessname" placeholder="Your Business Name" value={formData.businessname} onChange={handleChange} />
-              </div>
+              <Input type="text" id="businessname" placeholder="Your Business Name" value={formData.businessname} onChange={handleChange} />
             </div>
             <div className="sm:col-span-2">
-              <div className="mt-2.5">
-                <Input type="text" id="businessaddress" placeholder="your Business Address" value={formData.businessaddress} onChange={handleChange} />
-              </div>
+              <Input type="text" id="businessaddress" placeholder="Business Address" value={formData.businessaddress} onChange={handleChange} />
             </div>
             <div className="sm:col-span-2">
-              <div className="mt-2.5">
-                <Textarea id="message" placeholder="Type Your  Proposal Here..." value={formData.message} onChange={handleChange} />
-              </div>
+              <Textarea id="message" placeholder="Type Your Proposal Here..." value={formData.message} onChange={handleChange} />
             </div>
-            <Switch.Group as="div">
+            <Switch.Group as="div" className="sm:col-span-2">
               <div>
                 <Switch
                   checked={agreed}
                   onChange={setAgreed}
                   className={classNames(
                     agreed ? 'bg-primary' : 'bg-gray-200',
-                    'flex w-8 flex-none cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2'
+                    'flex w-8 flex-none cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out'
                   )}
                 >
                   <span className="sr-only">Agree to our policies</span>
@@ -180,11 +178,15 @@ export default function Contact() {
                 </a>
               </Switch.Label>
             </Switch.Group>
-            <div>
-              <Button type="submit" disabled={!agreed} className={classNames(
-                'flex w-full items-center px-8 py-3 text-white rounded-full shadow-lg ring-offset-2',
-                agreed ? 'hover:bg-gray-800 hover:ring-2 hover:ring-gray-800' : 'bg-gray-400 cursor-not-allowed'
-              )}>
+            <div className="sm:col-span-2">
+              <Button
+                type="submit"
+                disabled={!agreed}
+                className={classNames(
+                  'w-full py-3 text-lg font-semibold text-white rounded-full shadow-lg transition-colors duration-300 ease-in-out',
+                  agreed ? 'bg-primary hover:bg-primary-dark' : 'bg-gray-400 cursor-not-allowed'
+                )}
+              >
                 <TbArrowUpRight className="w-5 h-5 ml-2" />
                 Send Your Proposal
               </Button>
@@ -193,8 +195,30 @@ export default function Contact() {
         </form>
         <motion.div initial="offscreen" whileInView="onscreen" variants={desVariants} className="flex items-center justify-center mt-16">
           <LocationMarkerIcon className="h-6 w-6 text-primary mr-2" />
-          <p className="text-gray-600 text-xl dark:text-gray-200">Dubai , United Arab Emirates</p>
+          <p className="text-gray-600 text-xl dark:text-gray-200">Dubai, United Arab Emirates</p>
         </motion.div>
+      </div>
+
+      {/* Additional Section - Map Integration */}
+      <div className="px-6 py-12 sm:py-16 lg:px-8 bg-white dark:bg-gray-800">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-3xl font-semibold text-gray-900 dark:text-white">Our Location</h2>
+          <p className="mt-4 text-lg leading-7 text-gray-600 dark:text-gray-300">
+            Find us at our main office for in-person meetings or consultations.
+          </p>
+          <div className="mt-8">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.341584576255!2d55.27083041538284!3d25.27698798383085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6824c33b3e9b%3A0x6f3e7c66e9b5b4!2sDubai%2C%20United%20Arab%20Emirates!5e0!3m2!1sen!2sin!4v1630999112562!5m2!1sen!2sin"
+              width="600"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-96 sm:h-80 md:h-96 lg:h-80 rounded-lg shadow-lg"
+            ></iframe>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -16,7 +16,7 @@ const posts = [
             name: 'Adam Safiq',
             role: 'Interior Design Consultant',
             href: '#',
-            imageUrl: '/image/people/person1.jpg',
+            imageUrl: '/image/people/person1.webp',
             imageHeight: 4123,
             imageWidth:4532
         },
@@ -34,7 +34,7 @@ const posts = [
             name: 'Michael Henderson',
             role: 'Chief Design Officer',
             href: '#',
-            imageUrl: '/image/people/person2.jpg',
+            imageUrl: '/image/people/person2.webp',
             imageHeight: 3148,
             imageWidth:3249
         },
@@ -52,7 +52,7 @@ const posts = [
             name: 'Kevin Miller',
             role: 'Lead Interior Designer',
             href: '#',
-            imageUrl: '/image/people/person3.jpg',
+            imageUrl: '/image/people/person3.webp',
             imageHeight: 3596,
             imageWidth:3973
         },
@@ -70,7 +70,7 @@ const posts = [
             name: 'Matt Clark',
             role: 'Head of Design Strategy',
             href: '#',
-            imageUrl: '/image/people/person4.jpg',
+            imageUrl: '/image/people/person4.webp',
             imageHeight: 1750,
             imageWidth:1867
         },
@@ -88,7 +88,7 @@ const posts = [
             name: 'Shaikh Ismail',
             role: 'Senior Design Consultant',
             href: '#',
-            imageUrl: '/image/people/person5.jpg',
+            imageUrl: '/image/people/person5.webp',
             imageHeight: 2046,
             imageWidth:3069
         },
@@ -106,7 +106,7 @@ const posts = [
             name: 'Dan Smith',
             role: 'Director of Interior Design',
             href: '#',
-            imageUrl: '/image/people/person6.jpg',
+            imageUrl: '/image/people/person6.webp',
             imageHeight: 2991,
             imageWidth:4486
         },
@@ -116,14 +116,14 @@ const posts = [
 
 export default function ContactSection() {
     return (
-        <div className="pt-12">
+        <div className="pt-4">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <motion.h2
                     initial="offscreen"
                     whileInView="onscreen"
                     variants={titleVariants}
                     className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    Customer Reviews :
+                    Our Partners Reviews :
                 </motion.h2>
                 <motion.p
                     initial="offscreen"
@@ -150,6 +150,7 @@ export default function ContactSection() {
                                             alt=""
                                             width={80}
                                             height={5}
+                                            
                                         ></Image>
                                     </time>
                                     <a href={post.category.href}
@@ -181,10 +182,11 @@ export default function ContactSection() {
                                 variants={desVariants}
                                 className="relative mt-8 flex items-center gap-x-4">
                                     <Image src={post.author.imageUrl} alt="reviewer image" 
-                                    layout="intrinsic"
+                                    
+
                                     height={post.author.imageHeight}
                                     width={post.author.imageWidth}
-                                      className="h-20 w-20 rounded-full bg-gray-50 transition hover:scale-125"/>
+                                      className="h-20 w-20 rounded-full bg-gray-50 transition hover:scale-125" />
                                     <div className="text-sm leading-6">
                                         <p className="font-semibold">
                                             <a href="{post.author.href}">

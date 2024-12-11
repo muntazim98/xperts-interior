@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: 'engr.numairz@gmail.com',
-      subject: 'Fitout Enquiry Form Submission',
+      subject: 'Fitout Enquiry Submission',
       text: `Name: ${firstname} ${lastname}\nPhone: ${phone}\nEmail: ${email}\nQuery Message: ${message}`,
     };
 

@@ -4,31 +4,31 @@ export default function CatalogueSection() {
   const items = [
     {
       id: "01",
-      catagory: "BEDROOM SETUP",
-      title: "Cozy Bedroom Setup",
-      image: "/image/collection/badroom.jpg",
-      description: "Bedroom with cozy and comfortable design for your family"
+      catagory: "OFFICEROOM SETUP",
+      title: "Cozy Officeroom Setup",
+      image: "/image/badroom.jpg",
+      description: "Officeroom with cozy and comfortable design for Better Working Environment"
     },
     {
       id: "02",
       catagory: "KITCHEN SETUP",
       title: "Beautiful Kitchen Setup",
       image: "/image/kitchen1.jpg",
-      description: "kitchen room with clean and beautiful design for your family"
+      description: "kitchen room with clean and beautiful design for amazing Kitchen Environment"
     },
     {
       id: "03",
-      catagory: "DRAWINGROOM SETUP",
-      title: "Aesthetic Drawingroom Setup",
+      catagory: "CONFERENCEROOM SETUP",
+      title: "Aesthetic Conferenceroom Setup",
       image: "/image/drowing.jpg",
-      description: "Drawing room with aesthetic and elegant design for your family"
+      description: "Conference room with aesthetic and elegant design for better Conference Environment"
     },
     {
       id: "04",
-      catagory: "LIVINGROOM SETUP",
-      title: "Energetic Livingroom Setup",
+      catagory: "OFFICEHALL SETUP",
+      title: "Energetic Hallroom Setup",
       image: "/image/living.jpg",
-      description: "Livingroom with energetic and gorgeous design for your family"
+      description: "Office  Hallroom with energetic and gorgeous design for better Office Environment"
     }
   ]
   return (
@@ -43,7 +43,8 @@ export default function CatalogueSection() {
                 width={380}
                 height={100}
                 alt=""
-                className="w-full transition hover:scale-105"
+                className="w-full rounded-lg transition  hover:scale-105"
+                
               />
             </div>
             <div className="absolute top-0  p-8 bg-white text-black bg-opacity-50 backdrop-blur m-4">

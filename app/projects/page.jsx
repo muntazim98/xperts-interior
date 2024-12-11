@@ -11,6 +11,6 @@ export default function projects() {
 export function generateMetadata() {
   return {
     title: "Projects - Xperts Interior | Best Interior Design Company",
-    description: "All the projects done by Xperts Interior company. one of the best interior design company",
+    description: "All the projects done by Xperts Interior company. one of the top rated interior design company of Dubai",
   };
 }

@@ -4,7 +4,7 @@ import "./globals.css";
 //Components
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/floatingWhatsApp";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 //Theme Component
 import { ThemeProvider } from "@/components/ThemeProvider";
 const Josef = Sen(

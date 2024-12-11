@@ -6,75 +6,76 @@ import { desVariants, tagVariants, titleVariants } from '@/utils/animation';
 const projects = [
   {
     id: 1,
-    name: 'Drawing room for family time',
-    description: 'Drawing room with a clean and comfortable design for your family.charming with a modern design.',
-    image: '/image/projects/project3.jpg',
+    name: 'Executive Office Space Design',
+    description: 'Office space with a modern, functional design tailored for productivity.',
+    image: '/image/projectimage/projectimage1.webp',
     link: '',
   },
   {
     id: 2,
-    name: 'Kitchen with modern design',
-    description: 'Kitchen room with clean and beautiful design for your family',
-    image: '/image/projects/project2.jpg',
+    name: 'Contemporary Commercial Kitchen',
+    description: 'A sleek and efficient kitchen design for commercial environments.',
+    image: '/image/projectimage/projectimage2.webp',
     link: '',
   },
   {
     id: 3,
-    name: 'Modern Style Study Room',
-    description: 'Study with a calm and comfortable design for your family.charming whit a modern design.',
-    image: '/image/projects/project4.png',
+    name: 'Modern Corporate Conference Room',
+    description: 'A stylish and comfortable design for a professional conference space.',
+    image: '/image/projectimage/projectimage3.webp',
     link: '',
   },
   {
     id: 4,
-    name: 'OpenLight Living Room',
-    description: 'Living room with clean and beautiful design for your family',
-    image: '/image/projects/project1.jpg',
+    name: 'Spacious Office Lounge',
+    description: 'A relaxing lounge area designed for modern offices and workspaces.',
+    image: '/image/projectimage/projectimage4.webp',
     link: '',
   },
   {
     id: 5,
-    name: 'Aesthetic Guest Room',
-    description: 'Guestroom with energetic ang gourgeous design for your family',
-    image: '/image/projects/project5.jpg',
+    name: 'Luxurious Hotel Guest Room',
+    description: 'An elegant guest room designed for a premium hotel experience.',
+    image: '/image/projectimage/projectimage5.webp',
     link: '',
   },
   {
     id: 6,
-    name: 'Perfect living room for family time',
-    description: 'Livingroom with energetic ang gourgeous design for your family',
-    image: '/image/projects/project6.jpg',
+    name: 'Premium Office Meeting Room',
+    description: 'A vibrant meeting room design for corporate discussions.',
+    image: '/image/projectimage/projectimage6.webp',
     link: '',
   },
   {
     id: 7,
-    name: 'Royal Luxurious Dining Room',
-    description: 'A Stunning Dining room with luxurious and beautiful design for your family',
-    image: '/image/projects/project7.jpg',
+    name: 'High-End Restaurant Dining Room',
+    description: 'A luxurious dining room for a top-tier restaurant.',
+    image: '/image/projectimage/projectimage7.webp',
     link: '',
   },
   {
     id: 8,
-    name: 'OpenLight Kitchen For Family',
-    description: 'Kitchen with open light ang beautiful design for your family',
-    image: '/image/projects/project8.jpg',
+    name: 'Bright and Open Commercial Kitchen',
+    description: 'A well-lit and functional kitchen for a commercial setup.',
+    image: '/image/projectimage/projectimage8.webp',
     link: '',
   },
   {
     id: 9,
-    name: 'OutDoor Guest Living Hall',
-    description: 'Guest Living Hall with energetic ang gourgeous design for your family',
-    image: '/image/projects/project9.jpg',
+    name: 'Outdoor Commercial Seating Area',
+    description: 'A vibrant outdoor seating area for a commercial setting.',
+    image: '/image/projectimage/projectimage9.webp',
     link: '',
   },
   {
     id: 10,
-    name: 'Modern Aesthetic Hall',
-    description: 'Modern Hall with asthetic ang gourgeous design for your family',
-    image: '/image/projects/project10.jpg',
+    name: 'Modern Corporate Event Hall',
+    description: 'An aesthetic and functional hall for corporate events.',
+    image: '/image/projectimage/projectimage10.webp',
     link: '',
   },
 ];
+
 
 const ProjectSection = ({ project }) => (
   <motion.div
@@ -84,23 +85,25 @@ const ProjectSection = ({ project }) => (
     key={project.id}
     className="relative overflow-hidden rounded-xl group"
   >
-    <div>
+    <div className="relative w-full h-64 md:h-80 lg:h-96">
       <Image
         src={project.image}
-        width={480}
-        height={380}
+        layout="fill" // Ensures image covers the parent container
+        objectFit="cover" // Ensures image scales and fits nicely within its container
+        objectPosition="center" // Centers the image within the container 
         alt={project.name}
-        className="w-full transition hover:scale-105"
+        className="transition-transform duration-500 group-hover:scale-105"
+        
       />
     </div>
     <div
-      className="absolute bottom-0 right-0 bg-white/90 dark:bg-black/40 flex-col 
-      items-center justify-end w-96 gap-32 p-12 text-xl
+      className="absolute bottom-0 right-0 bg-white/80 dark:bg-black/60 flex-col 
+      items-center justify-end w-96 gap-32 p-10  text-xl
       transition duration-300 ease-in-out translate-y-full from-transparent
       to-black group-hover:translate-y-0"
     >
-      <h1 className="text-2xl font-semibold">{project.name}</h1>
-      <p className="py-4 text-justify">{project.description}</p>
+      <h1 className="ml-4 text-xl lg:2xl md:text-2xl xl:text-3xl  font-semibold">{project.name}</h1>
+      <p className="ml-4 py-4 lg:text-xl md:text-xl xl:text-2xl text-lg text-justify">{project.description}</p>
     </div>
   </motion.div>
 );
@@ -111,7 +114,7 @@ const ProjectsPage = () => (
       initial="offscreen"
       whileInView="onscreen"
       variants={titleVariants}
-      className="bg-[url('/image/backgroundproject.jpg')] bg-center bg-cover h-screen w-full"
+      className="bg-[url('/image/projects/backgroundproject.webp')] bg-center bg-cover h-screen w-full"
     >
       <motion.h1
         initial="offscreen"
