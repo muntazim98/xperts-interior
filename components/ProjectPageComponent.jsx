@@ -93,7 +93,7 @@ const ProjectSection = ({ project }) => (
         objectPosition="center" // Centers the image within the container 
         alt={project.name}
         className="transition-transform duration-500 group-hover:scale-105"
-        
+        unoptimized
       />
     </div>
     <div

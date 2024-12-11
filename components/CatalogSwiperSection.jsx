@@ -8,6 +8,7 @@ import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import Image from "next/image";
 import { useState } from 'react';
+import Link from "next/link";
 
 export default function CatalogSwiperSection() {
     const [swiperInstance, setSwiperInstance] = useState(null);
@@ -62,6 +63,7 @@ export default function CatalogSwiperSection() {
                         Comfort is non-negotiable. Soft throws on sofas, inviting reading corners, and ergonomic furniture—these details matter. We create sanctuaries where memories are etched, where laughter echoes, and where families gather to celebrate life’s milestones.
                     </p>
                 </motion.div>
+                <Link href="/projects">
                 <motion.a 
                     initial="offscreen"
                     whileInView="onscreen"
@@ -74,6 +76,7 @@ export default function CatalogSwiperSection() {
                         <TbArrowUpRight className="w-5 h-5 ml-2"/>
                     </Button>
                 </motion.a>
+                </Link>
             </div>
             {/* Swiper */}
             <Swiper
@@ -105,7 +108,7 @@ export default function CatalogSwiperSection() {
                                 className="rounded-lg m-5 mx-auto transition-transform hover:scale-105 duration-500 ease-in-out"
                                 onMouseEnter={handleMouseEnter}
                                 onMouseLeave={handleMouseLeave}
-                                
+                                unoptimized
                             />
                         </div>
                     </SwiperSlide>

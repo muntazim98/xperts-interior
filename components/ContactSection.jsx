@@ -150,7 +150,7 @@ export default function ContactSection() {
                                             alt=""
                                             width={80}
                                             height={5}
-                                            
+                                            unoptimized
                                         ></Image>
                                     </time>
                                     <a href={post.category.href}
@@ -182,11 +182,9 @@ export default function ContactSection() {
                                 variants={desVariants}
                                 className="relative mt-8 flex items-center gap-x-4">
                                     <Image src={post.author.imageUrl} alt="reviewer image" 
-                                    
-
                                     height={post.author.imageHeight}
                                     width={post.author.imageWidth}
-                                      className="h-20 w-20 rounded-full bg-gray-50 transition hover:scale-125" />
+                                      className="h-20 w-20 rounded-full bg-gray-50 transition hover:scale-125" unoptimized />
                                     <div className="text-sm leading-6">
                                         <p className="font-semibold">
                                             <a href="{post.author.href}">

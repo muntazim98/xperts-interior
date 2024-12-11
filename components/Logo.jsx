@@ -13,7 +13,7 @@ const Logo = () => {
 
   return (
     <Link href="/">
-      <Image src={logo} alt="logo" width={800} height={300} className="h-16 w-auto"  />
+      <Image src={logo} alt="logo" width={800} height={300} className="h-16 w-auto"  unoptimized/>
     </Link>
   );
 };

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { TbArrowUpRight } from "react-icons/tb"
 import { desVariants, tagVariants, titleVariants } from "@/utils/animation"
 import { motion } from "framer-motion";
+import Link from "next/link";
 const HeroSection = () => {
   return (
 
@@ -37,7 +38,8 @@ const HeroSection = () => {
           initial="offscreen"
           whileInView="onscreen"
           variants={tagVariants}>
-            <a href="/contact">
+            <Link href="/contact">
+            <a >
           <Button className="inline-flex items-center justify-center px-8 py-2 mt-2
            text-white rounded-full shadow-lg
            hover:bg-gray-800 hover:ring-2 hover-ring-gray-950 ring-offset-2"
@@ -45,6 +47,8 @@ const HeroSection = () => {
             Book now<TbArrowUpRight className="w-5 h-5 ml-2" />
           </Button>
           </a>
+            </Link>
+            
         </motion.div>
 
       </div>
@@ -57,7 +61,7 @@ const HeroSection = () => {
           objectFit="contain"
           className="absolute right-10 xl:h-[520px] xl:w[1050px] lg:h-[400px] lg:w-[500px] hidden 
           lg:block  transition hover:scale-105 transform duration-500 ease-in-out" 
-          
+          unoptimized
         />
       </div>
     </div>

@@ -14,7 +14,8 @@ const AnimatedImage = ({ src, alt, width, height, className }) => {
 
   return (
     <motion.div ref={ref} style={{ scale }} className='overflow-hidden h-full w-full' >
-      <Image src={src} width={width} height={height} className={className} alt={alt} objectFit="contain" />
+      <Image src={src} width={width} height={height} className={className} alt={alt} objectFit="contain" 
+      unoptimized/>
     </motion.div>
   );
 };

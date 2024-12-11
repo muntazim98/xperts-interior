@@ -15,7 +15,7 @@ const AboutComponent = () => {
             width={1217}
             height={900}
             className="max-md:hidden transition hover:scale-105 transform duration-500 ease-in-out"
-            
+            unoptimized
           />
         </motion.div>
         <div className="items-center">

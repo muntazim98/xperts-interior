@@ -60,7 +60,7 @@ const AuthorityApproval = () => {
                 className="rounded-lg m-5 transition-transform duration-700 ease-in-out hover:scale-105 ring-2 ring-gray-700 dark:ring-primary ring-offset-2"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                
+                unoptimized
               />
             </div>
           </SwiperSlide>

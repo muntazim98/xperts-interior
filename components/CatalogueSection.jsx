@@ -44,7 +44,7 @@ export default function CatalogueSection() {
                 height={100}
                 alt=""
                 className="w-full rounded-lg transition  hover:scale-105"
-                
+                unoptimized
               />
             </div>
             <div className="absolute top-0  p-8 bg-white text-black bg-opacity-50 backdrop-blur m-4">
