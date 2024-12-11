@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import { desVariants, tagVariants, titleVariants } from '@/utils/animation';
 import { LocationMarkerIcon } from '@heroicons/react/outline';
 import { ToastContainer, toast } from 'react-toastify';
+import emailjs from '@emailjs/browser';
 import 'react-toastify/dist/ReactToastify.css';
 
 function classNames(...classes) {
@@ -35,52 +36,58 @@ export default function Contact() {
       [id]: value,
     }));
   };
+  const templateParams={
+    from_name:formData.email,
+    to_name:'Muntazim Ali',
+    message : formData.message
 
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const response = await fetch('/api/send-collaboratemail', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
-
-    if (response.ok) {
-      toast.success('Email received successfully. We will get back to you soon. Thanks!', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      setFormData({
-        firstname: '',
-        lastname: '',
-        email: '',
-        phone: '',
-        jobtitle: '',
-        businessname: '',
-        businessaddress: '',
-        message: '',
-      });
-      setAgreed(false);
-    } else {
-      toast.error('Failed to send email. Please try again later.', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
+    await emailjs.send(
+      'service_csihxee', 
+      'template_zq4yl79',
+      templateParams,
+       'Z7mnTwmbhhWTedURM',
+      )
+      .then(
+        () => {
+          toast.success('Email received successfully. We will get back to you soon. Thanks!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          setFormData({
+            firstname: '',
+            lastname: '',
+            email: '',
+            phone: '',
+            jobtitle: '',
+            businessname: '',
+            businessaddress: '',
+            message: '',
+          });
+          setAgreed(false);
+        },
+        (error) => {
+         
+          toast.error('Failed to send email. Please try again later.', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        },
+      );
   };
-
+   
   return (
     <div className="relative overflow-hidden">
       <ToastContainer />

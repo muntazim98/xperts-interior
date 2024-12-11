@@ -3,8 +3,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@headlessui/react';
-import { TbArrowUpRight } from 'react-icons/tb';
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 import { desVariants, tagVariants, titleVariants } from '@/utils/animation';
 import { LocationMarkerIcon, PhoneIcon, MailIcon } from '@heroicons/react/outline';
@@ -32,48 +32,56 @@ export default function Contact() {
       [id]: value,
     }));
   };
+  const templateParams={
+    from_name:formData.email,
+    to_name:'Muntazim Ali',
+    message : formData.message
+
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const response = await fetch('/api/send-email', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+   await emailjs.send(
+    'service_csihxee', 
+    'template_5wcn3uj', 
+      templateParams,
+       'Z7mnTwmbhhWTedURM',
+    )
+    .then(
+      () => {
+        toast.success('Query received successfully. We will get back to you soon. Thanks!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setFormData({
+          firstname: '',
+          lastname: '',
+          phone: '',
+          email: '',
+          message: '',
+        });
+        setAgreed(false);
       },
-      body: JSON.stringify(formData),
-    });
-
-    if (response.ok) {
-      toast.success('Query received successfully. We will get back to you soon. Thanks!', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      setFormData({
-        firstname: '',
-        lastname: '',
-        phone: '',
-        email: '',
-        message: '',
-      });
-      setAgreed(false);
-    } else {
-      toast.error('Failed to send query. Please try again later.', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
-  };
+      (error) => {
+        console.error(error);
+        toast.error('Failed to send query. Please try again later.', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      },
+    );
+};
+   
 
   return (
     <div className="bg-gray-50 dark:bg-gray-900">
