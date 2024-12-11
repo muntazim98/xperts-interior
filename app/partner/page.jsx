@@ -12,6 +12,6 @@ export default function partner() {
 export function generateMetadata() {
   return {
     title: "Partner with us - Xperts Interiors | One of the Trusted Interior Design Company to partner",
-    description: "partner with us to build your dream interior design. one of the trustworthy interior design company of dubai",
+    description: "partner with us to build your dream interior design. one of the trustworthy interior design company of Dubai",
   };
 }
