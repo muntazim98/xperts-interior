@@ -46,7 +46,7 @@ export default function Contact() {
     e.preventDefault();
     await emailjs.send(
       'service_csihxee', 
-      'template_zq4yl79',
+      'template_5wcn3uj',
       templateParams,
        'Z7mnTwmbhhWTedURM',
       )
