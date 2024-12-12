@@ -32,20 +32,24 @@ export default function Contact() {
       [id]: value,
     }));
   };
-  const templateParams={
-    from_name:formData.email,
-    to_name:'Muntazim Ali',
-    message : formData.message
-
-  };
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
+    var templateParams={
+      from_name:formData.firstname + ' ' + formData.lastname,
+      to_name:'Numraiz Zafar',
+      from_email:formData.email,
+      from_phone:formData.phone,
+      message : formData.message,
+      reply_to:formData.email
+    };
    await emailjs.send(
-    'service_csihxee', 
-    'template_5wcn3uj', 
+    'service_jorqchn', 
+    'template_eeel7qt', 
       templateParams,
-       'Z7mnTwmbhhWTedURM',
+       '7aO6ImrRUzx5UxfBm',
     )
     .then(
       () => {
