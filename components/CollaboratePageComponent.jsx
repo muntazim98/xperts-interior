@@ -202,7 +202,14 @@ export default function Contact() {
         </form>
         <motion.div initial="offscreen" whileInView="onscreen" variants={desVariants} className="flex items-center justify-center mt-16">
           <LocationMarkerIcon className="h-6 w-6 text-primary mr-2" />
-          <p className="text-gray-600 text-xl dark:text-gray-200">Dubai, United Arab Emirates</p>
+          <a 
+              href="https://www.google.com/maps/place/25%C2%B016'28.0%22N+55%C2%B020'51.9%22E/@25.2744427,55.3451653,17z/data=!3m1!4b1!4m4!3m3!8m2!3d25.2744427!4d55.3477402?hl=en&entry=ttu&g_ep=EgoyMDI0MTIwOS4wIKXMDSoASAFQAw%3D%3D" 
+               target="_blank" 
+                  rel="noopener noreferrer" 
+                     className="text-xl text-gray-800 dark:text-gray-200 hover:underline"
+                            >
+                     XpertsInteriorDecoration, Dubai
+                             </a>
         </motion.div>
       </div>
 
@@ -211,7 +218,7 @@ export default function Contact() {
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-semibold text-gray-900 dark:text-white">Our Location</h2>
           <p className="mt-4 text-lg leading-7 text-gray-600 dark:text-gray-300">
-            Find us at our main office for in-person meetings or consultations.
+            Find us at our main office in Dubai for in-person meetings or consultations.
           </p>
           <div className="mt-8">
             <iframe

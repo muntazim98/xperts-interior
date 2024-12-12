@@ -16,7 +16,7 @@ const FloatingWhatsApp = () => {
   }, []);
 
   const handleClick = () => {
-    const phoneNumber = "+971564603350"; // Replace with your WhatsApp number
+    const phoneNumber = "+9710588383900"; // Replace with your WhatsApp number
     const url = `https://wa.me/${phoneNumber}`;
     window.open(url, "_blank");
   };

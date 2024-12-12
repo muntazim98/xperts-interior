@@ -132,17 +132,29 @@ export default function Contact() {
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="flex flex-col items-center">
               <PhoneIcon className="h-8 w-8 text-primary mb-2" />
-              <p className="text-xl text-gray-800 dark:text-gray-200">+123-456-7890</p>
+              <p className="text-xl text-gray-800 dark:text-gray-200">+971-0588383900</p>
               <p className="text-gray-600 dark:text-gray-400">Mon - Fri, 8am - 6pm</p>
             </div>
             <div className="flex flex-col items-center">
               <MailIcon className="h-8 w-8 text-primary mb-2" />
-              <p className="text-xl text-gray-800 dark:text-gray-200">xpertsinteriors@gmail.com</p>
+              <a 
+                   href="mailto:xpertsinteriors@gmail.com" 
+                    className="text-xl text-gray-800 dark:text-gray-200 hover:underline"
+                             >
+                    xpertsinteriors@gmail.com
+                         </a>
               <p className="text-gray-600 dark:text-gray-400">Support 24/7</p>
             </div>
             <div className="flex flex-col items-center">
               <LocationMarkerIcon className="h-8 w-8 text-primary mb-2" />
-              <p className="text-xl text-gray-800 dark:text-gray-200">Dubai, UAE</p>
+              <a 
+              href="https://www.google.com/maps/place/25%C2%B016'28.0%22N+55%C2%B020'51.9%22E/@25.2744427,55.3451653,17z/data=!3m1!4b1!4m4!3m3!8m2!3d25.2744427!4d55.3477402?hl=en&entry=ttu&g_ep=EgoyMDI0MTIwOS4wIKXMDSoASAFQAw%3D%3D" 
+               target="_blank" 
+                  rel="noopener noreferrer" 
+                     className="text-xl text-gray-800 dark:text-gray-200 hover:underline"
+                            >
+                     XpertsInteriorDecoration, Dubai
+                             </a>
             </div>
           </div>
         </div>
@@ -274,7 +286,7 @@ export default function Contact() {
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-semibold text-gray-900 dark:text-white">Our Location</h2>
           <p className="mt-4 text-lg leading-7 text-gray-600 dark:text-gray-300">
-            Find us at our main office for in-person meetings or consultations.
+            Find us at our main office in Dubai for in-person meetings or consultations.
           </p>
           <div className="mt-8">
             <iframe
