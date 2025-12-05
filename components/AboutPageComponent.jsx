@@ -7,6 +7,8 @@ import { TbArrowUpRight, TbArrowDownRight } from 'react-icons/tb';
 import { Button } from '@/components/ui/button';
 import AnimatedImage from './AnimatedImage';
 import clsx from 'clsx';
+import Link from "next/link";
+
 
 /* =========================
    Static Content Definitions
@@ -504,12 +506,12 @@ const AboutPage = () => {
               variants={desVariants}
               className="flex justify-center"
             >
-              <a href="/contact">
-                <Button className="inline-flex items-center justify-center px-8 py-3 mt-2 text-white rounded-full shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2">
-                  Discuss Your Project
-                  <TbArrowUpRight className="w-5 h-5 ml-2" />
-                </Button>
-              </a>
+              <Link href="/contact">
+          <Button className="inline-flex items-center justify-center px-8 py-3 mt-2 text-white rounded-full shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2">
+           Discuss Your Project
+          <TbArrowUpRight className="w-5 h-5 ml-2" />
+            </Button>
+           </Link>
             </motion.div>
           </div>
         </section>
