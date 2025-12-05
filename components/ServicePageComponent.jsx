@@ -68,7 +68,7 @@ const ServicePage = () => {
           variants={titleVariants}
           className="absolute top-80 sm:top-80 md:top-80 lg:top-56 xl:top-56  inset-0 flex items-center justify-center"
         >
-          <h1 className="container text-xs font-semibold text-gray-600 tracking-widest text-center sm:text-xl md:text-xl lg:text-xl xl:text-2xl rotate-3.5">
+          <h1 className="container text-xs font-semibold text-primary tracking-widest text-center sm:text-xl md:text-xl lg:text-xl xl:text-2xl rotate-3.5">
             Transform your dream space into reality !!!
           </h1>
         </motion.div>

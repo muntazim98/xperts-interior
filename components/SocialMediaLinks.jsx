@@ -1,7 +1,8 @@
 // components/SocialMediaLinks.js
 'use client';
 import React from 'react';
-import { FaYoutube, FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
+import { FaYoutube, FaInstagram, FaFacebook } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { desVariants, titleVariants } from '@/utils/animation';
 
@@ -9,7 +10,7 @@ const socialMediaLinks = [
     { name: 'Facebook', href: 'https://www.facebook.com', icon: <FaFacebook className="w-7 h-7" /> },
   { name: 'YouTube', href: 'https://www.youtube.com', icon: <FaYoutube className="w-7 h-7" /> },
   { name: 'Instagram', href: 'https://www.instagram.com', icon: <FaInstagram className="w-7 h-7" /> },
-  { name: 'Twitter', href: 'https://www.twitter.com', icon: <FaTwitter className="w-7 h-7" /> },
+  { name: 'Twitter', href: 'https://www.twitter.com', icon: <FaXTwitter className="w-7 h-7" /> },
 ];
 
 const SocialMediaLinks = () => (
